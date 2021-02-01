@@ -7,4 +7,8 @@ npm install
 npm start
 ```
 
-![react-ts favorite snacks entry user interface](./ts-react-snacks.png)
+[Live on CodeSandbox](https://codesandbox.io/s/github/evefonwu/react-ts-snacks)
+
+![react-ts favorite snacks entry user interface start](./ts-react-snacks.png)
+
+![react-ts favorite snacks entry user interface in-progress](./ts-react-snacks-1.png)

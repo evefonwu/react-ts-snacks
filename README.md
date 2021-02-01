@@ -1,4 +1,4 @@
-Fully typed React application with TypeScript – a Step by step form for entering three favorite snacks
+Fully typed React application with TypeScript – Multi-step form for entering three favorite snacks
 
 #### Running the application
 

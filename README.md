@@ -8,7 +8,3 @@ Fully typed React application with TypeScript – Multi-step form for entering t
 npm install
 npm start
 ```
-
-![react-ts favorite snacks entry user interface start](./ts-react-snacks.png)
-
-![react-ts favorite snacks entry user interface in-progress](./ts-react-snacks-1.png)

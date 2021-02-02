@@ -9,6 +9,6 @@ npm install
 npm start
 ```
 
-![react-ts favorite snacks entry user interface start](./ts-react-snacks.png)
+![react-ts UI start](./react-ts-start.png)
 
-![react-ts favorite snacks entry user interface in-progress](./ts-react-snacks-1.png)
+![react-ts UI in-progress](./react-ts-progress.png)

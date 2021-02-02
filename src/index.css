@@ -7,34 +7,47 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
 body {
-  padding-top: 30px;
+  padding: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+body[data-uimode="dawn"] {
+  --mode-text: #ffffff;
+  --mode-background: linear-gradient(#e66465, #9198e5);
+}
+
+body[data-uimode="night"] {
+  --mode-text: #ffffff;
+  --mode-background: #363939;
 }
 
 .container {
-  margin: 0px;
-  padding: 10px 50px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  height: 400px;
+  width: 100%;
+}
+
+.main-content {
+  border-radius: 18px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  height: 330px;
-  width: 300px;
+  padding: 22px;
+  padding-bottom: 40px;
+}
+
+.heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
 }
 
 input {
-  border-radius: 2.8px;
-  border: 1px solid #333;
-  height: 31px;
+  height: 28px;
 }
 
 .title {
@@ -43,7 +56,7 @@ input {
 }
 
 .action-panel {
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
 form > * {

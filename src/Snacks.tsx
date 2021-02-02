@@ -1,9 +1,17 @@
 import { useState } from 'react';
+import styled from '@emotion/styled'
+
 import StepOne from './StepOne'
 import StepTwo from './StepTwo'
 import StepThree from './StepThree'
 import StepFinal from './StepFinal'
 import { Snack } from './snack.model'
+import Toggle from './Toggle'
+
+const MainContent = styled.div({
+  color: 'var(--mode-text)',
+  background: 'var(--mode-background)',
+})
 
 function Snacks() {  
   const [step, setStep] = useState(1)  
@@ -63,13 +71,18 @@ function Snacks() {
   }
 
   return (
-    <div className="container">
-      <div className="snacks-entry">      
-        <p>Three Favorite Snacks – a fully typed React application with TypeScript</p>        
-        {multistep(step)}
-      </div>
-    </div>
-    
+    <div className="container">      
+      <MainContent className="main-content">                                
+        <div className="snacks-entry">       
+          <div className="heading">
+            <h3 className="title">Favorite Snacks</h3>        
+            <Toggle />            
+          </div>                
+          <p>Three Favorite Snacks – a fully typed React application with TypeScript</p>        
+        {multistep(step)}                
+        </div>                  
+      </MainContent>
+  </div>    
   )
 }
 

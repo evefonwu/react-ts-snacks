@@ -11,4 +11,4 @@ npm start
 
 ![react-ts favorite snacks entry user interface start](./ts-react-snacks.png)
 
-![react-ts favorite snacks entry user interface in-progress](./ts-react-snacks.png)
+![react-ts favorite snacks entry user interface in-progress](./ts-react-snacks-1.png)

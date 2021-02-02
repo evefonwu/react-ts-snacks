@@ -34,10 +34,10 @@ function Snacks() {
     }
   }
 
-  function isDuplicate(name: string): boolean {
-    snacks.forEach(item => {
-      if (item.name === name) return true
-    })
+  function isDuplicate(name: string): boolean {    
+    for (let item of snacks) {
+      if (item.name == name) return true
+    }    
     return false 
   }
 

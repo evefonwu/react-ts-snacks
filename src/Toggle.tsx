@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
+import Switch from './Switch'
 
 const Dawn = "dawn"
 const Night = "night"
+const NightBackground = "grey"
 
 const Toggle = () => {
   const [isDawn, setIsDawn] = useState(true)
@@ -14,8 +16,8 @@ const Toggle = () => {
     setIsDawn(prev => !prev)
   }
 
-  return (
-    <button onClick={handleToggle}>{isDawn ? Night : Dawn} Mode</button>
+  return (    
+    <Switch isOn={isDawn} handleToggle={handleToggle} onColor={NightBackground}></Switch>  
   )
 }
 

@@ -15,8 +15,8 @@ body {
 }
 
 body[data-uimode="dawn"] {
-  --mode-text: #ffffff;
-  --mode-background: linear-gradient(#e66465, #9198e5);
+  --mode-text: #333;
+  --mode-background: #ffffff;
 }
 
 body[data-uimode="night"] {
@@ -31,6 +31,7 @@ body[data-uimode="night"] {
 
 .main-content {
   border-radius: 18px;
+  border: 1px solid #ccc;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

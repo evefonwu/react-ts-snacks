@@ -5,7 +5,7 @@ import StepOne from './StepOne'
 import StepTwo from './StepTwo'
 import StepThree from './StepThree'
 import StepFinal from './StepFinal'
-import { Snack } from './snack.model'
+import { Snack } from '../models/snack.model'
 import Toggle from './Toggle'
 
 const MainContent = styled.div({

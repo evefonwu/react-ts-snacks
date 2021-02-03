@@ -1,7 +1,7 @@
 import React from 'react'
 import Step from './Step'
 
-import { Snack } from './snack.model'
+import { Snack } from '../models/snack.model'
 
 type StepNProps = {
   onAddSnack: (name: string) => void;

@@ -1,6 +1,6 @@
 /* Source: https://upmostly.com/tutorials/build-a-react-switch-toggle-component */
 
-import './switch.css'
+import '../styles/Switch.css'
 
 type SwitchProps = {
   isOn: boolean;

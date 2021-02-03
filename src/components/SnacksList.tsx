@@ -1,4 +1,4 @@
-import { Snack } from './snack.model'
+import { Snack } from '../models/snack.model'
 
 type SnacksListProps = { 
   snacks: Snack[]

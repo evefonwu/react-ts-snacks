@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import SnacksList from './SnacksList'
-import { Snack } from './snack.model'
+import { Snack } from '../models/snack.model'
 
 type StepProps = { 
   onAddSnack: (name: string) => void;

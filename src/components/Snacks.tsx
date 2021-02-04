@@ -42,7 +42,7 @@ function Snacks() {
   }
 
   function addSnack(name: string): void {
-    console.log(name)
+    // console.log(name)
     if (name && name.trim() && !isDuplicate(name)) {
       const newSnack = {
         name

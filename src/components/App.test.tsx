@@ -8,7 +8,7 @@ beforeEach(() => {
 
 /**
  * test: initial state, on step one
- * assert: text three favorite snacks, text box, and continue button 
+ * assert: text snack #1, text box, and continue button 
  */
 test('initial state', () => {
   const title = screen.getByText(/snack #1/i);  
@@ -60,8 +60,8 @@ test('duplicate entry', async () => {
   userEvent.type(screen.getByRole('textbox'), "apples")  
   userEvent.click(screen.getByRole('button', {name: /continue/i})) 
 
-  const textElement = await screen.getByText(/snack #2/i);  
-  expect(textElement).toBeInTheDocument();
+  const title = await screen.getByText(/snack #2/i);  
+  expect(title).toBeInTheDocument();
 })
 
 /**
@@ -106,4 +106,60 @@ test('go to previous step', async () => {
   const snackB = screen.queryByText(/oranges/i) 
   expect(snackA).toBeInTheDocument();
   expect(snackB).toBeNull() 
+})
+
+/**
+ * test: from step three to final step, enter third snack ‘grapes’, click ‘complete’ 
+ * assert: list items ‘apples’ ‘oranges’ ‘grapes’ appear with a ‘replay’ button
+ * 
+ * test: replay, click ‘replay’ button
+ * assert: text is ‘snack #1’ and 'apples', 'oranges', 'grapes' disappear
+ */
+test('from step three to final', async () => {    
+  userEvent.type(screen.getByRole('textbox'), "apples")  
+  userEvent.click(screen.getByRole('button', {name: /continue/i})) 
+
+  await screen.getByText(/apples/i);    
+  userEvent.type(screen.getByRole('textbox'), "oranges")  
+  userEvent.click(screen.getByRole('button', {name: /continue/i})) 
+
+  await screen.getByText(/oranges/i);    
+  userEvent.type(screen.getByRole('textbox'), "grapes")  
+  userEvent.click(screen.getByRole('button', {name: /complete/i})) 
+
+  const snackA = await screen.getByText(/apples/i);  
+  const snackB = await screen.getByText(/oranges/i);  
+  const snackC = await screen.getByText(/grapes/i);  
+  expect(snackA).toBeInTheDocument();
+  expect(snackB).toBeInTheDocument();
+  expect(snackC).toBeInTheDocument(); 
+})
+
+/**
+ * test: replay
+ * assert: text is ‘snack #1’ and 'apples', 'oranges', 'grapes' disappear
+ */
+test('replay', async () => {    
+  userEvent.type(screen.getByRole('textbox'), "apples")  
+  userEvent.click(screen.getByRole('button', {name: /continue/i})) 
+
+  await screen.getByText(/apples/i);    
+  userEvent.type(screen.getByRole('textbox'), "oranges")  
+  userEvent.click(screen.getByRole('button', {name: /continue/i})) 
+
+  await screen.getByText(/oranges/i);    
+  userEvent.type(screen.getByRole('textbox'), "grapes")  
+  userEvent.click(screen.getByRole('button', {name: /complete/i})) 
+
+  const replayButton = await screen.getByRole('button', {name: /replay/i})  
+  userEvent.click(replayButton)
+
+  const title = await screen.getByText(/snack #1/i);
+  expect(title).toBeInTheDocument(); 
+  const snackA = await screen.queryByText(/apples/i);  
+  const snackB = await screen.queryByText(/oranges/i);  
+  const snackC = await screen.queryByText(/grapes/i);  
+  expect(snackA).toBeNull();
+  expect(snackB).toBeNull();
+  expect(snackC).toBeNull();   
 })

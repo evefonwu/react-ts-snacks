@@ -16,6 +16,7 @@ const Switch = ({ isOn, handleToggle, onColor }: SwitchProps) => {
         className="react-switch-checkbox"
         id={`react-switch-new`}
         type="checkbox"
+        data-testid="ui-mode-toggle"
       />
       <label
         style={{ background: onColor }}

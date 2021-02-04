@@ -163,3 +163,40 @@ test('replay', async () => {
   expect(snackB).toBeNull();
   expect(snackC).toBeNull();   
 })
+
+/**
+ * test: toggle checkbox 
+ * assert: checked/unchecked 
+ */
+test('toggle checkbox on and off', () => {
+  const toggle = screen.getByTestId("ui-mode-toggle")
+  expect(toggle).toBeInTheDocument()
+  expect(toggle).toBeChecked()
+
+  userEvent.click(toggle)
+  expect(toggle).not.toBeChecked()
+
+  userEvent.click(toggle)
+  expect(toggle).toBeChecked()
+})
+
+/**
+ * test: toggle changes UI mode
+ * assert: initial dawn colors
+ * test, assert: toggle once, night colors; toggle twice, dawn colors 
+ */
+test('toggle UI mode', () => {  
+  const dawnMode = 'dawn'
+  const nightMode = 'night'
+  let uimode = document.body.dataset.uimode
+  expect(uimode).toBe(dawnMode)
+
+  const toggle = screen.getByTestId("ui-mode-toggle")
+  userEvent.click(toggle)
+  uimode = document.body.dataset.uimode
+  expect(uimode).toBe(nightMode)
+
+  userEvent.click(toggle)
+  uimode = document.body.dataset.uimode
+  expect(uimode).toBe(dawnMode)
+})

@@ -9,6 +9,12 @@ npm install
 npm start
 ```
 
+#### Running the tests
+
+```bash
+npm test -- --no-watchman
+```
+
 ![react-ts UI start](./react-ts-start.png)
 
 ![react-ts UI in-progress](./react-ts-progress.png)

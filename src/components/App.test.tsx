@@ -32,7 +32,7 @@ test("blank input", () => {
 
 /**
  * test: from step one to step two, enter ‘apples’, click continue
- * assert: previous button appears, list item text ‘apples’ appears
+ * assert: previous button appears, text ‘apples’ appears
  */
 test("from step one to step two", async () => {
   render(<App />);
@@ -68,7 +68,7 @@ test("duplicate entry", async () => {
 
 /**
  * test: from step two to three, enter second snack ‘oranges’, click continue
- * assert: list items ‘apples’ and ‘oranges’ appear
+ * assert: text ‘apples’ and ‘oranges’ appear
  */
 test("from step two to three", async () => {
   render(<App />);
@@ -89,7 +89,7 @@ test("from step two to three", async () => {
 
 /**
  * test: on step three, click previous
- * assert: title to be snack #2 and list items ‘oranges’ disappears
+ * assert: title to be snack #2 and text ‘oranges’ disappears
  */
 test("go to previous step", async () => {
   render(<App />);
@@ -116,10 +116,7 @@ test("go to previous step", async () => {
 
 /**
  * test: from step three to final step, enter third snack ‘grapes’, click ‘complete’
- * assert: list items ‘apples’ ‘oranges’ ‘grapes’ appear with a ‘replay’ button
- *
- * test: replay, click ‘replay’ button
- * assert: text is ‘snack #1’ and 'apples', 'oranges', 'grapes' disappear
+ * assert: text ‘apples’ ‘oranges’ ‘grapes’ appear 
  */
 test("from step three to final", async () => {
   render(<App />);

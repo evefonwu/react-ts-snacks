@@ -2,6 +2,8 @@ Fully typed React application with TypeScript – Multi-step form for entering t
 
 [Live on CodeSandbox](https://codesandbox.io/s/github/evefonwu/react-ts-snacks)
 
+[Run tests on CodeSandbox](https://codesandbox.io/s/github/evefonwu/react-ts-snacks?file=/src/components/App.test.tsx)
+
 #### Running the application
 
 ```bash

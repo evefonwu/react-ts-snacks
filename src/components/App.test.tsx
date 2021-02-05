@@ -21,12 +21,13 @@ test("initial state", () => {
  * test: on step one, no input or blank input, click continue
  * assert: text stays at snack #1 (stays on step one without an entry)
  */
-test("blank input", () => {
+test("blank input", async () => {
   render(<App />);
   const invalidInput = "";
   userEvent.type(screen.getByRole("textbox"), invalidInput);
   userEvent.click(screen.getByRole("button", { name: /continue/i }));
-  const title = screen.getByText(/snack #1/i);
+
+  const title = await screen.getByText(/snack #1/i);
   expect(title).toBeInTheDocument();
 });
 
@@ -39,13 +40,13 @@ test("from step one to step two", async () => {
   userEvent.type(screen.getByRole("textbox"), "apples");
   userEvent.click(screen.getByRole("button", { name: /continue/i }));
 
-  const title = await screen.getByText(/snack #2/i);
-  expect(title).toBeInTheDocument();
+  const title = await screen.getByText(/snack #2/i);  
   const snack = await screen.getByText(/apples/i);
-  expect(snack).toBeInTheDocument();
   const previousButton = await screen.findByRole("button", {
     name: /previous/i
   });
+  expect(title).toBeInTheDocument();
+  expect(snack).toBeInTheDocument();  
   expect(previousButton).toBeInTheDocument();
 });
 
@@ -79,10 +80,10 @@ test("from step two to three", async () => {
   userEvent.type(screen.getByRole("textbox"), "oranges");
   userEvent.click(screen.getByRole("button", { name: /continue/i }));
 
-  const title = await screen.getByText(/snack #3/i);
-  expect(title).toBeInTheDocument();
+  const title = await screen.getByText(/snack #3/i);  
   const snackA = await screen.getByText(/apples/i);
   const snackB = await screen.getByText(/oranges/i);
+  expect(title).toBeInTheDocument();
   expect(snackA).toBeInTheDocument();
   expect(snackB).toBeInTheDocument();
 });
@@ -100,17 +101,17 @@ test("go to previous step", async () => {
   userEvent.type(screen.getByRole("textbox"), "oranges");
   userEvent.click(screen.getByRole("button", { name: /continue/i }));
   await screen.getByText(/oranges/i);
-
   const previousButton = await screen.getByRole("button", {
     name: /previous/i
   });
   userEvent.click(previousButton);
-  const title = await screen.getByText(/snack #2/i);
-  expect(title).toBeInTheDocument();
 
-  const snackA = await screen.getByText(/apples/i);
-  const snackB = screen.queryByText(/oranges/i);
+  const title = await screen.getByText(/snack #2/i);
+  const snackA = await screen.getByText(/apples/i);  
+  expect(title).toBeInTheDocument();
   expect(snackA).toBeInTheDocument();
+
+  const snackB = await screen.queryByText(/oranges/i);
   expect(snackB).toBeNull();
 });
 
